@@ -1,0 +1,506 @@
+<?xml version="1.0"?>
+<robot>
+  <gazebo reference="base_link">
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+
+  <gazebo reference="back_hub_link">
+    <!-- back hub color -->
+    <material>Gazebo/Red</material>
+    <!-- hub mu1 -->
+    <mu1>1.0</mu1>
+    <!-- hub mu2 -->
+    <mu2>1.0</mu2>
+    <!-- hub maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- hub fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- hub gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_hub_link">
+    <!-- hub color -->
+    <material>Gazebo/Blue</material>
+    <!-- hub mu1 -->
+    <mu1>1.0</mu1>
+    <!-- hub mu2 -->
+    <mu2>1.0</mu2>
+    <!-- hub maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- hub fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- hub gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_hub_link">
+    <!-- hub color -->
+    <material>Gazebo/Green</material>
+    <!-- hub mu1 -->
+    <mu1>1.0</mu1>
+    <!-- hub mu2 -->
+    <mu2>1.0</mu2>
+    <!-- hub maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- hub fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- hub gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+
+  <gazebo reference="left_roller_link_1">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_2">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_3">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_4">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_5">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_6">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_7">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_8">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_9">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="left_roller_link_10">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+
+  <gazebo reference="right_roller_link_1">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_2">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_3">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_4">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_5">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_6">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_7">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_8">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_9">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="right_roller_link_10">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+
+  <gazebo reference="back_roller_link_1">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_2">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_3">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_4">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_5">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_6">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_7">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_8">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_9">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+  <gazebo reference="back_roller_link_10">
+    <!-- roller color -->
+    <material>Gazebo/Black</material>
+    <!-- roller mu1 -->
+    <mu1>1.0</mu1>
+    <!-- roller mu2 -->
+    <mu2>1.0</mu2>
+    <!-- roller maxVel -->
+    <maxVel>0.1</maxVel>
+    <!-- roller fdir1 -->
+    <fdir1>1 1 0</fdir1>
+    <!-- roller gravity -->
+    <gravity>true</gravity>
+    <!-- <selfCollide>false</selfCollide> -->
+  </gazebo>
+
+</robot>

@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot name="omni3robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:arg name="pkg_path" default=""/>
+  <xacro:include filename="description.gazebo"/>
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-2.60873786585806E-05 0.000243250065461549 0.00991609422071794" rpy="0 0 0" />
+      <mass value="0.220390933719744" />
+      <inertia
+      ixx="9.60338008936991E-05" ixy="6.90711247235453E-08" ixz="2.92326723956294E-08"
+      iyy="9.73351427819623E-05" iyz="-2.72559942630336E-07"
+      izz="0.0001795709713681" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/base_link.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="back_hub_link">
+    <inertial>
+      <origin xyz="2.56280149801462E-05 8.27907396198074E-05 6.93889390390723E-18" rpy="0 0 0" />
+      <mass value="0.0479080577376475" />
+      <inertia
+      ixx="6.84765795190242E-06" ixy="2.68210543382495E-08" ixz="-1.90755783989393E-09"
+      iyy="6.92600027574926E-06" iyz="5.90487790310419E-10"
+      izz="1.31112018830395E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_hub_link.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_hub_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_hub_joint" type="continuous">
+    <origin xyz="0 -0.060414518843274 0.01" rpy="1.5707963267949 -0.342794523761895 0" />
+    <parent link="base_link" />
+    <child link="back_hub_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_1">
+    <inertial>
+      <origin xyz="0 -2.08166817117217E-17 8.41340885848751E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="2.06795153138257E-25" ixz="1.77456090786767E-23"
+      iyy="8.41931982734933E-08" iyz="8.27180612553028E-25"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_1.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_1" type="continuous">
+    <origin xyz="0 -0.0233534863832243 0.00749999999999999" rpy="1.57079632679492 1.55729200470626 -1.57079632679487" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_1" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_2">
+    <inertial>
+      <origin xyz="0 0 8.5868812060852E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734976E-08" ixy="-7.10858338912758E-26" ixz="1.15805285757424E-23"
+      iyy="8.41931982734976E-08" iyz="9.06021264686988E-24"
+      izz="3.69026890905251E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_2.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_2" type="continuous">
+    <origin xyz="-0.022000325895883 -0.00783396366639405 0.00749999999999999" rpy="1.5707963267949 -0.00341148273627483 -2.79950812019889" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_2" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_3">
+    <inertial>
+      <origin xyz="6.93889390390723E-18 -1.38777878078145E-17 8.32667268468867E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.4193198273496E-08" ixy="1.24077091882954E-24" ixz="-6.61744490042422E-24"
+      iyy="8.4193198273496E-08" iyz="-1.17873237288806E-23"
+      izz="3.69026890905218E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_3.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_3" type="continuous">
+    <origin xyz="-0.0141194971962481 0.0186017505944087 0.00749999999999999" rpy="1.5707963267949 -0.133997952555445 2.22005880853679" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_3" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_4">
+    <inertial>
+      <origin xyz="0 -2.77555756156289E-17 8.5868812060852E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734932E-08" ixy="4.13590306276514E-25" ixz="2.31610571514848E-23"
+      iyy="8.41931982734932E-08" iyz="-1.47341546611008E-23"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_4.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_4" type="continuous">
+    <origin xyz="0.0134617042465216 0.0190831822563907 0.00750000000000001" rpy="1.5707963267949 -0.0704622970109889 0.956440430092898" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_4" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_5">
+    <inertial>
+      <origin xyz="0 0 8.67361737988404E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="-2.66652656448979E-24" ixz="1.39586728368323E-23"
+      iyy="8.41931982734933E-08" iyz="-7.3024538451947E-25"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_5.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_5" type="continuous">
+    <origin xyz="0.0222603252809191 -0.00706139112633746 0.00750000000000001" rpy="1.5707963267949 -0.0690979686040568 -0.307177948350999" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_5" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_6">
+    <inertial>
+      <origin xyz="5.20417042793042E-18 0 8.8037216405823E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="8.27180612553028E-25" ixz="1.57164316385075E-23"
+      iyy="8.41931982734933E-08" iyz="-9.69352280335579E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_6.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_6" type="continuous">
+    <origin xyz="-0.0131939492214551 -0.0192692768466569 -0.0075" rpy="1.5707963267949 0.0510141821619564 -2.17118958948093" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_6" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_7">
+    <inertial>
+      <origin xyz="6.93889390390723E-18 0 7.80625564189563E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="4.87907314435575E-25" ixz="1.31314922242793E-23"
+      iyy="8.41931982734933E-08" iyz="-2.19719850209398E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_7.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_7" type="continuous">
+    <origin xyz="-0.0223567478500103 0.00674990013426135 -0.0075" rpy="-1.5707963267949 0.189803894702825 -0.293215314335038" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_7" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_8">
+    <inertial>
+      <origin xyz="6.93889390390723E-18 0 -8.50014503228635E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="-1.65436122510606E-24" ixz="5.16987882845642E-24"
+      iyy="8.41931982734933E-08" iyz="-2.39882377640378E-23"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_8.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_8" type="continuous">
+    <origin xyz="-0.000326065588430512 0.0233512099790029 -0.00750000000000001" rpy="1.5707963267949 1.32163185520065 1.58475896081086" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_8" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_9">
+    <inertial>
+      <origin xyz="0 0 8.84708972748172E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734928E-08" ixy="-4.13590306276514E-25" ixz="1.81979734761666E-23"
+      iyy="8.41931982734929E-08" iyz="-4.96308367531817E-24"
+      izz="3.69026890905164E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_9.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_9" type="continuous">
+    <origin xyz="0.0221595630173079 0.00737150548622212 -0.0075" rpy="-1.5707963267949 -0.214706325291427 -2.82045207122283" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_9" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="back_roller_link_10">
+    <inertial>
+      <origin xyz="0 -1.38777878078145E-17 8.67361737988404E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734964E-08" ixy="-1.24077091882954E-24" ixz="1.65436122510606E-24"
+      iyy="8.41931982734964E-08" iyz="-4.13590306276514E-24"
+      izz="3.69026890905227E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_10.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/back_roller_link_10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="back_roller_joint_10" type="continuous">
+    <origin xyz="0.0137268348856724 -0.0188933673619324 -0.00750000000000001" rpy="-1.5707963267949 0.214455135869957 2.19911485751286" />
+    <parent link="back_hub_link" />
+    <child link="back_roller_link_10" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_hub_link">
+    <inertial>
+      <origin xyz="8.27907396198134E-05 2.56280149801419E-05 6.93889390390723E-18" rpy="0 0 0" />
+      <mass value="0.0479080577376475" />
+      <inertia
+      ixx="6.92600027574926E-06" ixy="2.68210543382497E-08" ixz="-5.90487790310826E-10"
+      iyy="6.84765795190242E-06" iyz="1.9075578398941E-09"
+      izz="1.31112018830395E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_hub_link.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_hub_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_hub_joint" type="continuous">
+    <origin xyz="-0.0523205080756892 0.0302072594216366 0.01" rpy="-1.5707963267949 -0.612948648771079 1.04719755119661" />
+    <parent link="base_link" />
+    <child link="left_hub_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_1">
+    <inertial>
+      <origin xyz="-4.38538094726937E-15 2.8943861196673E-14 -1.66533453693773E-16" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734932E-08" ixy="8.16840854896115E-24" ixz="1.88054342385102E-23"
+      iyy="8.41931982734933E-08" iyz="3.77401154477319E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_1.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_1" type="continuous">
+    <origin xyz="-0.0192692768466812 -0.0131939492214714 0.00749999999999881" rpy="1.5707963267949 -1.38048597489272 -2.54119939090376" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_1" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_2">
+    <inertial>
+      <origin xyz="5.70377078901174E-15 -8.02136135291676E-15 2.50381312905112E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734928E-08" ixy="1.32348898008484E-23" ixz="2.56425989891439E-23"
+      iyy="8.41931982734929E-08" iyz="4.13590306276514E-24"
+      izz="3.69026890905164E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_2.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_2" type="continuous">
+    <origin xyz="-0.018893367361955 0.013726834885658 0.00749999999999976" rpy="-1.5707963267949 0.929944260398238 -0.62831853071796" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_2" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_3">
+    <inertial>
+      <origin xyz="2.08895400977127E-14 7.84095011141517E-15 1.64191577001205E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734978E-08" ixy="-2.48154183765908E-24" ixz="2.48154183765908E-23"
+      iyy="8.41931982734977E-08" iyz="3.30872245021211E-24"
+      izz="3.69026890905254E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_3.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_3" type="continuous">
+    <origin xyz="0.00737150548619958 0.0221595630172919 0.0075000000000003" rpy="1.5707963267949 0.373417386311186 1.24965574442794" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_3" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_4">
+    <inertial>
+      <origin xyz="1.74721348500384E-14 -1.60912949631609E-14 -1.50695428358105E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734926E-08" ixy="-4.13590306276514E-24" ixz="2.8951321439356E-23"
+      iyy="8.41931982734926E-08" iyz="-5.79026428787119E-24"
+      izz="3.69026890905159E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_4.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_4" type="continuous">
+    <origin xyz="0.0233512099789789 -0.000326065588445341 0.00750000000000053" rpy="1.5707963267949 -0.721769196294574 -0.0139626340159606" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_4" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_5">
+    <inertial>
+      <origin xyz="-4.02455846426619E-16 -8.12544476147536E-15 -2.53234933023094E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734987E-08" ixy="2.06795153138257E-25" ixz="9.15068552636787E-24"
+      iyy="8.41931982734987E-08" iyz="1.73707928636136E-23"
+      izz="3.69026890905274E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_5.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_5" type="continuous">
+    <origin xyz="0.00674990013423936 -0.0223567478500255 0.00749999999999985" rpy="1.57079632679489 1.54234688429856 -1.27758101245986" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_5" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_6">
+    <inertial>
+      <origin xyz="-7.82707232360735E-15 2.23467078175332E-14 1.49914802793916E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734932E-08" ixy="-8.27180612553028E-25" ixz="1.3648480107125E-23"
+      iyy="8.41931982734932E-08" iyz="1.65436122510606E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_6.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_6" type="continuous">
+    <origin xyz="-0.0233534863832479 0 -0.00750000000000082" rpy="1.5707963267949 -1.19945954084603 3.14159265358979" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_6" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_7">
+    <inertial>
+      <origin xyz="1.38777878078145E-17 -3.46944695195361E-18 7.97972798949331E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+        ixx="8.41931982734977E-08" ixy="2.06795153138257E-24" ixz="1.0998917207541E-23"
+        iyy="8.41931982734977E-08" iyz="-8.27180612553028E-24"
+        izz="3.69026890905254E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_7.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_7" type="continuous">
+    <origin xyz="-0.00706139112633746 0.0222603252809191 -0.00750000000000001" rpy="-1.57079632679487 -1.55161891074618 -1.26361837844392" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_7" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_8">
+    <inertial>
+      <origin xyz="0 -6.93889390390723E-18 8.50014503228635E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734932E-08" ixy="-6.51751831183807E-24" ixz="1.24691014993833E-23"
+      iyy="8.41931982734932E-08" iyz="1.83207580983424E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_8.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_8" type="continuous">
+    <origin xyz="0.0190831822563907 0.0134617042465216 -0.00750000000000001" rpy="-1.5707963267949 0.765889797937581 -2.5272367568878" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_8" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_9">
+    <inertial>
+      <origin xyz="-3.46944695195361E-18 6.93889390390723E-18 8.32667268468867E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734977E-08" ixy="3.30872245021211E-24" ixz="1.81979734761666E-23"
+      iyy="8.41931982734977E-08" iyz="-1.77843831698901E-23"
+      izz="3.69026890905254E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_9.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_9" type="continuous">
+    <origin xyz="0.0186017505944087 -0.0141194971962481 -0.0075" rpy="1.5707963267949 0.463259303257962 -0.649262481741898" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_9" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="left_roller_link_10">
+    <inertial>
+      <origin xyz="-3.46944695195361E-18 6.93889390390723E-18 8.50014503228635E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734963E-08" ixy="8.27180612553028E-25" ixz="1.15805285757424E-23"
+      iyy="8.41931982734964E-08" iyz="8.27180612553028E-25"
+      izz="3.69026890905227E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_10.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/left_roller_link_10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="left_roller_joint_10" type="continuous">
+    <origin xyz="-0.00783396366639404 -0.022000325895883 -0.00750000000000002" rpy="-1.5707963267949 -0.452282392003353 1.228711793404" />
+    <parent link="left_hub_link" />
+    <child link="left_roller_link_10" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_hub_link">
+    <inertial>
+      <origin xyz="2.56280149801454E-05 -8.27907396198091E-05 0" rpy="0 0 0" />
+      <mass value="0.0479080577376475" />
+      <inertia
+      ixx="6.84765795190243E-06" ixy="-2.68210543382476E-08" ixz="1.90755783989289E-09"
+      iyy="6.92600027574927E-06" iyz="5.90487790313911E-10"
+      izz="1.31112018830395E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_hub_link.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_hub_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_hub_joint" type="continuous">
+    <origin xyz="0.0523205080756892 0.0302072594216368 0.01" rpy="1.5707963267949 1.0471975511966 2.09439510239319" />
+    <parent link="base_link" />
+    <child link="right_hub_link" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_1">
+    <inertial>
+      <origin xyz="-1.38777878078145E-16 6.31439345255558E-16 1.57859836313889E-16" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734932E-08" ixy="-8.96973976737189E-24" ixz="1.55096364853693E-23"
+      iyy="8.41931982734932E-08" iyz="-6.61744490042422E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_1.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_1" type="continuous">
+    <origin xyz="0.0137268348856724 0.0188933673619324 0.00750000000000001" rpy="-1.5707963267949 -1.40882641561372 0.942477796076937" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_1" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_2">
+    <inertial>
+      <origin xyz="5.45397060847108E-15 -3.49026363366534E-15 3.17714604625152E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016278" />
+      <inertia
+      ixx="8.41931982734995E-08" ixy="-6.61744490042422E-24" ixz="2.48154183765908E-24"
+      iyy="8.41931982734995E-08" iyz="4.96308367531817E-24"
+      izz="3.6902689090529E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_2.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_2" type="continuous">
+    <origin xyz="-0.0131939492214284 0.0192692768466749 0.00749999999999344" rpy="-1.57079632679488 -0.923062692335552 2.17118958948092" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_2" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_3">
+    <inertial>
+      <origin xyz="6.93889390390723E-18 -1.38777878078145E-17 8.67361737988404E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734975E-08" ixy="1.02363600803437E-23" ixz="1.65436122510606E-23"
+      iyy="8.41931982734975E-08" iyz="2.48154183765908E-24"
+      izz="3.69026890905251E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_3.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_3" type="continuous">
+    <origin xyz="-0.0223567478500099 -0.00674990013426118 0.00750000000000021" rpy="-1.5707963267949 0.026723375910807 -2.84837733925476" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_3" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_4">
+    <inertial>
+      <origin xyz="-2.08166817117217E-17 6.93889390390723E-18 9.0205620750794E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734893E-08" ixy="4.96308367531817E-24" ixz="1.32348898008484E-23"
+      iyy="8.41931982734893E-08" iyz="2.48154183765908E-24"
+      izz="3.69026890905101E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_4.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_4" type="continuous">
+    <origin xyz="-0.00032606558843048 -0.0233512099790023 0.00750000000000019" rpy="1.5707963267949 0.763972494306282 1.55683369277894" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_4" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_5">
+    <inertial>
+      <origin xyz="6.09928774153445E-15 8.67361737988404E-16 -2.62116717220096E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.4193198273491E-08" ixy="9.92616735063633E-24" ixz="3.14328632770151E-23"
+      iyy="8.4193198273491E-08" iyz="-3.72231275648862E-24"
+      izz="3.69026890905126E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_5.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_5" type="continuous">
+    <origin xyz="0.0221595630173217 -0.00737150548619833 0.00750000000000275" rpy="1.57079632679491 0.61369778053926 2.82045207122284" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_5" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_6">
+    <inertial>
+      <origin xyz="1.08593689596148E-14 3.19813620031084E-14 1.24067423001861E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734964E-08" ixy="5.37667398159468E-24" ixz="-1.65436122510606E-24"
+      iyy="8.41931982734964E-08" iyz="7.85821581925376E-24"
+      izz="3.69026890905227E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_6.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_6" type="continuous">
+    <origin xyz="0 0.0233534863832451 -0.00750000000002719" rpy="1.57079632679489 0.319088525233286 -1.5707963267949" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_6" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_7">
+    <inertial>
+      <origin xyz="1.83186799063151E-15 -2.58126853225349E-15 1.14248888127833E-14" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734904E-08" ixy="3.30872245021211E-24" ixz="1.03397576569128E-23"
+      iyy="8.41931982734905E-08" iyz="3.92910790962688E-24"
+      izz="3.69026890905117E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_7.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_7" type="continuous">
+    <origin xyz="-0.0220003258958767 0.00783396366640432 -0.007500000000002" rpy="-1.57079632679489 0.257880599669227 2.7995081201989" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_7" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_8">
+    <inertial>
+      <origin xyz="1.35039548987415E-14 0 1.5560469579512E-15" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734933E-08" ixy="2.22304789623626E-24" ixz="1.69572025573371E-23"
+      iyy="8.41931982734933E-08" iyz="-3.41212002678124E-24"
+      izz="3.69026890905172E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_8.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_8" type="continuous">
+    <origin xyz="-0.0141194971962415 -0.0186017505943974 -0.00749999999999461" rpy="-1.57079632679489 0.393410975366226 -2.2200588085368" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_8" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_9">
+    <inertial>
+      <origin xyz="-1.38777878078145E-17 0 8.50014503228635E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734934E-08" ixy="-6.61744490042422E-24" ixz="5.79026428787119E-24"
+      iyy="8.41931982734934E-08" iyz="-8.27180612553028E-25"
+      izz="3.69026890905174E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_9.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_9" type="continuous">
+    <origin xyz="0.0134617042465218 -0.0190831822563903 -0.0074999999999999" rpy="1.57079632679491 -0.611824669785827 2.18515222349689" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_9" />
+    <axis xyz="0 0 1" />
+  </joint>
+  <link name="right_roller_link_10">
+    <inertial>
+      <origin xyz="0 -6.93889390390723E-18 8.32667268468867E-17" rpy="0 0 0" />
+      <mass value="0.00231470671016277" />
+      <inertia
+      ixx="8.41931982734928E-08" ixy="-3.51551760335037E-24" ixz="1.65436122510606E-23"
+      iyy="8.41931982734929E-08" iyz="-7.49632430126181E-24"
+      izz="3.69026890905164E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_10.STL" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://$(arg pkg_path)/meshes/right_roller_link_10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="right_roller_joint_10" type="continuous">
+    <origin xyz="0.0222603252809193 0.00706139112633789 -0.00750000000000016" rpy="-1.5707963267949 0.0366359002326294 0.307177948350998" />
+    <parent link="right_hub_link" />
+    <child link="right_roller_link_10" />
+    <axis xyz="0 0 1" />
+  </joint>
+</robot>

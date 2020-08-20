@@ -1,0 +1,31 @@
+<launch>
+  <!-- Package path -->
+  <arg name="pkg_path" default="model"/>
+  <!-- model name -->
+  <arg name="model_name" default="omni3robot"/>
+
+  <!-- Robot pose -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0.1"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <!--Note:robot_description $(find pkg) need to be modified manually -->
+  <param
+    name="robot_description"
+    command="$(find xacro)/xacro '$(find model)/xacro/$(arg model_name)/$(arg model_name).xacro' pkg_path:=$(arg pkg_path)" />
+  <!-- TODO:will $(find $(arg pkg_path)) Done
+  ,Only need to modify after the function is completed pkg_path and model_name-->
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node
+    name="urdf_spawner"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    respawn="false"
+    output="screen"
+    args="-urdf -model $(arg model_name) -param robot_description -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" />
+</launch>
