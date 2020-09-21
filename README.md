@@ -328,9 +328,16 @@
 
 ## Error
 
-```bash
 Controller Spawner couldn't find the expected controller_manager ROS interface.
 
+```bash
 sudo apt-get install ros-<distro>-gazebo-ros-control
 ```
 
+Could not stop controller 'joint_state_controller' since it is not running
+
+```bash
+sudo apt-get install ros-<distro>-joint-state-controller
+sudo apt-get install ros-<distro>-position-controllers
+sudo apt-get install ros-<distro>-effort-controllers
+```

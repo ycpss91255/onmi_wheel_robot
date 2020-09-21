@@ -1,0 +1,23 @@
+omni3robot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+  # Velocity Controllers ---------------------------------------
+
+    # type: effort_controllers/JointVelocityController
+    # type: effort_controllers/JointEffortController
+    # type: effort_controllers/JointPositionController
+  back_wheel:
+    type: effort_controllers/JointVelocityController
+    joint: back_hub_joint
+    pid: {p: 0.02, i: 0.0, d: 0.0}
+  rigiht_wheel:
+    type: effort_controllers/JointVelocityController
+    joint: right_hub_joint
+    pid: {p: 0.02, i: 0.0, d: 0.0}
+  left_wheel:
+    type: effort_controllers/JointVelocityController
+    joint: left_hub_joint
+    pid: {p: 0.02, i: 0.0, d: 0.0}
+

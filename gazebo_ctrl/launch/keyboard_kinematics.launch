@@ -1,0 +1,15 @@
+<launch>
+    <node
+        pkg="gazebo_ctrl"
+        type="keyboard_ctrl"
+        name="keyboard_ctrl"
+        output="screen"
+        respawn="true"
+        respawn_delay="0" />
+    <node
+        pkg="gazebo_ctrl"
+        type="kinematics"
+        name="kinematics"
+        respawn="true"
+        respawn_delay="0" />
+</launch>

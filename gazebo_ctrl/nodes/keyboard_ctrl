@@ -1,0 +1,208 @@
+#!/usr/bin/env python3
+#-*-coding:UTF-8 -*-
+
+# Copyright (c) 2011, Willow Garage, Inc.
+# All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#    * Neither the name of the Willow Garage, Inc. nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#       this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+from __future__ import print_function
+
+import rospy
+from geometry_msgs.msg import Pose2D
+import sys
+import select
+import os
+if os.name == 'nt':
+  import msvcrt
+else:
+  import tty
+  import termios
+
+MAX_LIN_VEL = 50.0
+MAX_ANG_VEL = 30.0
+
+LIN_VEL_STEP_SIZE = 1.0
+ANG_VEL_STEP_SIZE = 0.5
+
+msg = """
+Control Your TurtleBot3!
+---------------------------
+Moving around:
+   q    w    e
+   a    s    d
+        x
+
+
+w/x : increase/decrease X linear velocity
+a/d : increase/decrease Y linear velocity
+q/e : increase/decrease theta angular velocity
+
+space key, s : force stop
+
+CTRL-C to quit
+"""
+
+e = """
+Communications Failed
+"""
+
+
+def getKey():
+    if os.name == 'nt':
+      return msvcrt.getch()
+
+    tty.setraw(sys.stdin.fileno())
+    rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
+    if rlist:
+        key = sys.stdin.read(1)
+    else:
+        key = ''
+
+    termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
+    return key
+
+
+def vels(x_target_linear_vel, y_target_linear_vel, theta_target_angular_vel):
+    return "currently:\tX linear vel %s\tY linear vel %s\ttheta angular vel %s " % (x_target_linear_vel, y_target_linear_vel, theta_target_angular_vel)
+
+
+def makeSimpleProfile(output, input, slop):
+    if input > output:
+        output = min(input, output + slop)
+    elif input < output:
+        output = max(input, output - slop)
+    else:
+        output = input
+
+    return output
+
+
+def checkLimitVelocity(vel, line_or_angle):
+    if line_or_angle == "line":
+        return max(-MAX_LIN_VEL, min(vel, MAX_LIN_VEL))
+    if line_or_angle == "angle":
+        return max(-MAX_ANG_VEL, min(vel, MAX_ANG_VEL))
+    else:
+        return max(-MAX_LIN_VEL, min(vel, MAX_LIN_VEL))
+
+
+if __name__ == "__main__":
+    if os.name != 'nt':
+        settings = termios.tcgetattr(sys.stdin)
+
+    rospy.init_node('cmd_motionvector')
+    pub = rospy.Publisher('cmd_motionvector', Pose2D, queue_size=10)
+    rate = rospy.Rate(10)#10hz
+
+    status = 0
+    x_target_linear_vel = 0.0
+    y_target_linear_vel = 0.0
+    theta_target_angular_vel = 0.0
+
+    x_control_linear_vel = 0.0
+    y_control_linear_vel = 0.0
+    theta_control_angular_vel = 0.0
+
+    try:
+        print(msg)
+        while not rospy.is_shutdown():
+            key = getKey()
+            if (key == '\x03'):
+                break
+            else:
+                if key == 'd':
+                    x_target_linear_vel = checkLimitVelocity(
+                        x_target_linear_vel + LIN_VEL_STEP_SIZE, "line")
+                    status = status + 1
+                elif key == 'a':
+                    x_target_linear_vel = checkLimitVelocity(
+                        x_target_linear_vel - LIN_VEL_STEP_SIZE, "line")
+                    status = status + 1
+                elif key == 'w':
+                    y_target_linear_vel = checkLimitVelocity(
+                        y_target_linear_vel + LIN_VEL_STEP_SIZE, "line")
+                    status = status + 1
+                elif key == 'x':
+                    y_target_linear_vel = checkLimitVelocity(
+                        y_target_linear_vel - LIN_VEL_STEP_SIZE, "line")
+                    status = status + 1
+                elif key == 'e':
+                    theta_target_angular_vel = checkLimitVelocity(
+                        theta_target_angular_vel - LIN_VEL_STEP_SIZE, "angle")
+                    status = status + 1
+                elif key == 'q':
+                    theta_target_angular_vel = checkLimitVelocity(
+                        theta_target_angular_vel + LIN_VEL_STEP_SIZE, "angle")
+                    status = status + 1
+                elif key == ' ' or key == 's':
+                    x_target_linear_vel = 0.0
+                    y_target_linear_vel = 0.0
+                    theta_target_angular_vel = 0.0
+
+                    x_control_linear_vel = 0.0
+                    y_control_linear_vel = 0.0
+                    theta_control_angular_vel = 0.0
+
+                print(vels(x_target_linear_vel,
+                           y_target_linear_vel, theta_target_angular_vel))
+
+            if status == 100:
+                print(msg)
+                status = 0
+
+            vector = Pose2D()
+
+            x_control_linear_vel = makeSimpleProfile(
+                x_control_linear_vel, x_target_linear_vel, (ANG_VEL_STEP_SIZE/2.0))
+            y_control_linear_vel = makeSimpleProfile(
+                y_control_linear_vel, y_target_linear_vel, (ANG_VEL_STEP_SIZE/2.0))
+            theta_control_angular_vel = makeSimpleProfile(
+                theta_control_angular_vel, theta_target_angular_vel, (ANG_VEL_STEP_SIZE/2.0))
+
+            vector.x =x_control_linear_vel
+            vector.y =y_control_linear_vel
+            vector.theta =theta_control_angular_vel
+
+            pub.publish(vector)
+            rate.sleep()
+
+    except rospy.ROSInterruptException:
+        pass
+    except KeyboardInterrupt:
+        print("Shutting down")
+    except:
+        print(e)
+
+    finally:
+        vector = Pose2D()
+        vector.x = 0.0
+        vector.y = 0.0
+        vector.theta = 0.0
+
+        pub.publish(vector)
+
+    if os.name != 'nt':
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
